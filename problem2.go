@@ -1,4 +1,4 @@
-mport "time"
+import "time"
 
 
 type (
@@ -26,13 +26,13 @@ type (
   DeliverySlotsForWeek represents all the slots to choose from in a week
    */
   DeliverySlotsForWeek struct {
-    Monday OneDay
-    Tuesday OneDay
+    Monday    OneDay
+    Tuesday   OneDay
     Wednesday OneDay
-    Thrusday OneDay
-    Friday OneDay
-    Saturday OneDay
-    Sunday OneDay
+    Thrusday  OneDay
+    Friday    OneDay
+    Saturday  OneDay
+    Sunday    OneDay
   }
 
   /*
@@ -59,26 +59,29 @@ type (
 
 )
 
+/*
 
+The input expected is DeliverySlotsForWeek, MedicinesRequested, GaneshMedical
 
 For Each medicine requested, the API will query GaneshMedicals to find all the results where
 
 GaneshMedical.MedicineName = MedicinesRequested.MedicineName &&
 MedicinesRequested.UnitRequested <= GaneshMedical.StockUnits
 
-This will get all AvaialabilityDates and ExpireDates for that medicine and units requested. Lets store this is a different struct:
+This will get all AvailabilityDates and ExpireDates for that medicine and units requested. Lets store this is a different struct:
   Results struct {
     AvailabilityDateTime time.Time
     ExpiryDateTime time.Time.
   }
 
 Then for each of these AvailabilityDates, the task is to find the slots.
-The API should get all the slots where
+The API woukd go through all the slots for the week and make sure of the following
+
 
 Slot.StartTime >= Results.AvailabilityDateTime &&
 Slot.StartTime < Results.ExpiryDateTime
 
-
+*/
 
 
 
